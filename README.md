@@ -1,6 +1,6 @@
 # aplikasi_fakultas
 
-A new Flutter project.
+A faculty app  by Rendi & Zheand
 
 ## Getting Started
 
