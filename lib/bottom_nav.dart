@@ -20,10 +20,6 @@ class BottomNav extends StatelessWidget {
           icon: Icon(Icons.school),
           label: 'Programs',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.info),
-          label: 'About',
-        ),
       ],
     );
   }

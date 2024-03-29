@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'bottom_nav.dart';
 import 'developer_info.dart';
+import 'home.dart';
+import 'program_study_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     Home(),
-    Programs(),
+    ProgramStudyList(),
     DeveloperInfo(),
   ];
 
@@ -61,23 +63,5 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to Faculty Profile App'),
-    );
-  }
-}
-
-class Programs extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Programs Page'),
-    );
   }
 }
