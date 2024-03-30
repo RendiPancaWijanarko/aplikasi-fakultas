@@ -2,6 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatelessWidget {
+  final List<String> carouselImages = [
+    'assets/images/carousel/caraousel_img1.png',
+    'assets/images/carousel/caraousel_img2.png',
+    'assets/images/carousel/caraousel_img3.png',
+    'assets/images/carousel/caraousel_img4.png',
+  ];
+
+  final List<String> carouselDescriptions = [
+    'Kegiatan ANGKASA',
+    'EBGC 2023 6th Economics, Business, And Government Challenges International Conference “Epicentrum Of Growth : Sustainability Economic Development In Asean Countries “',
+    'Visiting Professor Program - Uni KL',
+    'Peresmian Pojok Statistik',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -11,21 +25,16 @@ class Home extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
             width: MediaQuery.of(context).size.width,
-            height:
-                MediaQuery.of(context).size.width * 9 / 16, // Rasio aspek 16:9
+            height: MediaQuery.of(context).size.width * 9 / 16,
             child: CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
-                aspectRatio: 16 / 9, // Rasio aspek 16:9
-                viewportFraction: 1, // Menempati seluruh lebar layar
+                aspectRatio: 16 / 9,
+                viewportFraction: 1,
               ),
-              items: [
-                'assets/images/carousel/caraousel_img1.png',
-                'assets/images/carousel/caraousel_img2.png',
-                'assets/images/carousel/caraousel_img3.png',
-                'assets/images/carousel/caraousel_img4.png',
-              ].map((imageUrl) {
+              items: carouselImages.map((imageUrl) {
+                int index = carouselImages.indexOf(imageUrl);
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
@@ -45,7 +54,7 @@ class Home extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.0),
                         child: Stack(
                           children: [
-                            Image.network(
+                            Image.asset(
                               imageUrl,
                               fit: BoxFit.fill,
                               width: double.infinity,
@@ -60,7 +69,7 @@ class Home extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Text(
-                                  'Deskripsi Gambar',
+                                  carouselDescriptions[index],
                                   style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
@@ -77,86 +86,7 @@ class Home extends StatelessWidget {
               }).toList(),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Fakultas Ekonomi dan Bisnis',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                Text(
-                  'Tentang Kami:',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  'Sejarah:',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  'Visi:',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  'Misi:',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  'Nilai-Nilai Utama:',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: TextStyle(fontSize: 16.0),
-                ),
-              ],
-            ),
-          ),
+          // Bagian selanjutnya dari tampilan home...
         ],
       ),
     );
