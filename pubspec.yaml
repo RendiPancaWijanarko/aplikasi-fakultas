@@ -54,10 +54,16 @@ dev_dependencies:
 flutter:
   assets:
     # CARAOUSEL IMAGE ASSETS
-    - assets\images\carousel\caraousel_img1.png
-    - assets\images\carousel\caraousel_img2.png
-    - assets\images\carousel\caraousel_img3.png
-    - assets\images\carousel\caraousel_img4.png
+    - assets/images/carousel/carousel_img1.png
+    - assets/images/carousel/carousel_img2.png
+    - assets/images/carousel/carousel_img3.png
+    - assets/images/carousel/carousel_img4.png
+
+    # LOGO PRODI
+    - assets/images/logo_prodi/Akuntansi.png
+    - assets/images/logo_prodi/Ekonomi Pembangunan.png
+    - assets/images/logo_prodi/Kewirausahaan.png
+    - assets/images/logo_prodi/Manajemen.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
