@@ -1,6 +1,6 @@
 # aplikasi_fakultas
 
-A faculty app  by Rendi & Zheand
+A faculty app  using flutter by rendi
 
 ## Getting Started
 
