@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Faculty Profile'),
+        title: Text('Fakultas Ekonomi dan Bisnis'),
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNav(
