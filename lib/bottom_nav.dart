@@ -18,7 +18,7 @@ class BottomNav extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.school),
-          label: 'Programs',
+          label: 'Program Studi',
         ),
       ],
     );
