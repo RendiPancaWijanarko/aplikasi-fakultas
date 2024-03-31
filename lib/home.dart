@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:core'; // Import untuk TimeOfDay
 
 class Home extends StatelessWidget {
   final List<String> carouselImages = [
@@ -22,8 +23,30 @@ class Home extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selamat ${TimeOfDay.now().hour > 12 ? 'Siang' : 'Pagi'},',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                const Text(
+                  'Rendi Panca Wijanarko',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 20.0),
+            margin: const EdgeInsets.symmetric(vertical: 2.0),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width * 9 / 16,
             child: CarouselSlider(
@@ -39,14 +62,14 @@ class Home extends StatelessWidget {
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.2),
                             spreadRadius: 2,
                             blurRadius: 10,
-                            offset: Offset(0, 5),
+                            offset: const Offset(0, 5),
                           ),
                         ],
                       ),
@@ -63,14 +86,14 @@ class Home extends StatelessWidget {
                               bottom: 10.0,
                               left: 10.0,
                               child: Container(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
                                   color: Colors.white.withOpacity(0.8),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Text(
                                   carouselDescriptions[index],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -86,7 +109,6 @@ class Home extends StatelessWidget {
               }).toList(),
             ),
           ),
-          // Bagian selanjutnya dari tampilan home...
         ],
       ),
     );

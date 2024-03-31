@@ -17,17 +17,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: HomePageWithCustomAppBar(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class HomePageWithCustomAppBar extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageWithCustomAppBarState createState() =>
+      _HomePageWithCustomAppBarState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageWithCustomAppBarState extends State<HomePageWithCustomAppBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
@@ -39,29 +40,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Fakultas Ekonomi dan Bisnis'),
-      ),
+      appBar: MyCustomAppBar(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNav(
         selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DeveloperInfo()),
-          );
+        onItemTapped: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
         },
-        child: Icon(Icons.info),
       ),
     );
   }
+}
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+class MyCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Row(
+        children: [
+          Icon(Icons.menu),
+          SizedBox(width: 10),
+          Text('FEB Mobile'),
+        ],
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.notifications),
+          onPressed: () {},
+        ),
+      ],
+      elevation: 5,
+      shadowColor: Colors.black.withOpacity(0.1),
+      backgroundColor: Colors.white,
+    );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
