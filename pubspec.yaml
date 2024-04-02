@@ -54,19 +54,19 @@ dev_dependencies:
 flutter:
   assets:
     # CAROUSEL IMAGE ASSETS
-    - assets/images/carousel/carousel_img1.png
-    - assets/images/carousel/carousel_img2.png
-    - assets/images/carousel/carousel_img3.png
-    - assets/images/carousel/carousel_img4.png
-
+    - assets\images\carousel\caraousel_img1.png
+    - assets\images\carousel\caraousel_img2.png
+    - assets\images\carousel\caraousel_img3.png
+    - assets\images\carousel\caraousel_img4.png
     # LOGO PRODI
     - assets/images/logo_prodi/Akuntansi.png
-    - assets/images/logo_prodi/Ekonomi_Pembangunan.png
+    - assets\images\logo_prodi\Ekonomi Pembangunan.png
     - assets/images/logo_prodi/Kewirausahaan.png
     - assets/images/logo_prodi/Manajemen.png
+    - assets/images/logo_prodi/feb_mobile_logo.png
 
     # PROFIL DEVELOPER
-    - assets/images/profil_developer/Rendi_Panca_Wijanarko.png
+    - assets\images\profil_developer\Rendi Panca Wijanarko.png
 
     # BERITA TERKINI
     - assets/images/berita_terkini/berita1.png

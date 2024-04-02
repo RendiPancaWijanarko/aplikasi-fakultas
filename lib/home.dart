@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'dart:core';
 
 class Home extends StatelessWidget {
   final List<String> carouselImages = [
@@ -9,32 +8,29 @@ class Home extends StatelessWidget {
     'assets/images/carousel/caraousel_img3.png',
   ];
 
-  final List<String> carouselDescriptions = [
-    'Kegiatan ANGKASA',
-    'EBGC 2023 6th Economics, Business, And Government Challenges International Conference “Epicentrum Of Growth : Sustainability Economic Development In Asean Countries “',
-    'Visiting Professor Program - Uni KL',
-  ];
-
   final List<Map<String, dynamic>> news = [
     {
-      'title': 'Berita Pertama',
+      'title': 'FEB Berkomitmen SDGs',
       'image': 'assets/images/berita_terkini/berita1.png',
-      'date': '12 Jan 2023',
-      'author': 'John Doe',
+      'description': 'Badan Eksekutif Mahasiswa Fakultas Ekonomi dan Bisn...',
+      'date': '4 Apr 2024',
+      'author': 'Rendi Panca',
       'readingTime': '5 menit',
     },
     {
-      'title': 'Berita Kedua',
+      'title': 'Program Rekognisi Lampau',
       'image': 'assets/images/berita_terkini/berita2.png',
-      'date': '10 Jan 2023',
-      'author': 'Jane Smith',
+      'description': 'Program Rekognisi Pembelajaran Lampau (RPL) ad...',
+      'date': '4 Apr 2024',
+      'author': 'Rendi Panca',
       'readingTime': '3 menit',
     },
     {
-      'title': 'Berita Ketiga',
+      'title': 'Workshop Lab FEB',
       'image': 'assets/images/berita_terkini/berita3.png',
-      'date': '8 Jan 2023',
-      'author': 'Budi Santoso',
+      'description': 'Dalam rangka pengembangan Laboratorium di Faku...',
+      'date': '6 Apr 2024',
+      'author': 'Rendi Panca',
       'readingTime': '4 menit',
     },
   ];
@@ -64,7 +60,7 @@ class Home extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Row(
                   children: [
                     Expanded(
@@ -84,7 +80,7 @@ class Home extends StatelessWidget {
                                 onChanged: (value) {
                                   // Tambahkan fungsi untuk aksi pencarian di sini
                                 },
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   hintText: 'Cari...',
                                   border: InputBorder.none,
                                 ),
@@ -94,145 +90,233 @@ class Home extends StatelessWidget {
                               onPressed: () {
                                 // Tambahkan fungsi untuk aksi pencarian di sini
                               },
-                              icon: Icon(Icons.search),
+                              icon: const Icon(Icons.search),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        // Tambahkan fungsi untuk aksi filter di sini
-                      },
-                      icon: Icon(Icons.filter_list),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            // Tambahkan fungsi untuk aksi filter di sini
+                          },
+                          icon: const Icon(
+                            Icons.filter_list,
+                            color: Colors
+                                .orange, // Ubah warna ikon filter menjadi oranye
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 2.0),
-            child: CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                aspectRatio: 16 / 9,
-                viewportFraction: 1,
-              ),
-              items: carouselImages.map((imageUrl) {
-                int index = carouselImages.indexOf(imageUrl);
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          imageUrl,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'Berita Terkini',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Kegiatan Fakultas',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Ikuti Perkembangan Kegiatan Fakultas FEB',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
-                height: 200,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: news.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 300, // Ganti lebar sesuai kebutuhan
-                      child: Card(
-                        elevation: 4,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                margin: const EdgeInsets.symmetric(vertical: 24.0),
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1,
+                  ),
+                  items: carouselImages.map((imageUrl) {
+                    carouselImages.indexOf(imageUrl);
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Stack(
                           children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      news[index]['image'],
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 5.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  imageUrl,
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            Positioned(
+                              bottom: 8.0,
+                              left: 8.0,
                               child: Text(
-                                news[index]['title'],
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
+                                imageUrl == carouselImages.first
+                                    ? 'Kegiatan Fakultas'
+                                    : '',
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8.0,
-                                right: 8.0,
-                                bottom: 8.0,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(Icons.date_range),
-                                      SizedBox(width: 5.0),
-                                      Text(
-                                        news[index]['date'],
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.access_time),
-                                      SizedBox(width: 5.0),
-                                      Text(
-                                        news[index]['readingTime'],
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
                               ),
                             ),
                           ],
-                        ),
-                      ),
+                        );
+                      },
                     );
-                  },
+                  }).toList(),
                 ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Berita Terkini',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'Kabar akademik terkini di FEB',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: news.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: 260,
+                          child: Card(
+                            elevation: 4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          news[index]['image'],
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        news[index]['title'],
+                                        style: const TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4.0),
+                                      Text(
+                                        news[index]['description'],
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                          fontSize: 14.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 8.0,
+                                    right: 8.0,
+                                    bottom: 8.0,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.date_range,
+                                            color: Colors.orange,
+                                          ),
+                                          const SizedBox(width: 5.0),
+                                          Text(
+                                            news[index]['date'],
+                                            style: const TextStyle(
+                                              fontSize: 14.0,
+                                              color: Colors.orange,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.access_time,
+                                            color: Colors.orange,
+                                          ),
+                                          const SizedBox(width: 5.0),
+                                          Text(
+                                            news[index]['readingTime'],
+                                            style: const TextStyle(
+                                              fontSize: 14.0,
+                                              color: Colors.orange,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

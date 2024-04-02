@@ -3,13 +3,14 @@ import 'bottom_nav.dart';
 import 'developer_info.dart';
 import 'home.dart';
 import 'program_study_list.dart';
+import 'program_studi_detail.dart'; // Import ProgramStudyDetail.dart
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomePageWithCustomAppBar(),
+      initialRoute: '/', // Set initialRoute to '/'
+      routes: {
+        '/': (context) => const HomePageWithCustomAppBar(),
+        '/program_studi_detail': (context) =>
+            ProgramStudyDetail(), // Register the route for ProgramStudyDetail
+      },
     );
   }
 }
 
 class HomePageWithCustomAppBar extends StatefulWidget {
-  const HomePageWithCustomAppBar({super.key});
+  const HomePageWithCustomAppBar({Key? key});
 
   @override
   _HomePageWithCustomAppBarState createState() =>
@@ -54,14 +60,24 @@ class _HomePageWithCustomAppBarState extends State<HomePageWithCustomAppBar> {
           });
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DeveloperInfo()),
-          );
-        },
-        child: const Icon(Icons.info),
+      floatingActionButton: Theme(
+        data: Theme.of(context).copyWith(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.orange,
+          ),
+        ),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DeveloperInfo()),
+            );
+          },
+          child: const IconTheme(
+            data: IconThemeData(color: Colors.white),
+            child: Icon(Icons.info),
+          ),
+        ),
       ),
     );
   }
@@ -73,20 +89,23 @@ class MyCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Row(
-        children: [
-          Icon(Icons.menu),
-          SizedBox(width: 10),
-          Text('FEB Mobile'),
-        ],
+      leading: IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed: () {},
+      ),
+      title: const Center(
+        child: Text('FEB Mobile'),
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.notifications),
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.orange,
+          ),
           onPressed: () {},
         ),
       ],
-      elevation: 5,
+      elevation: 5.0,
       shadowColor: Colors.black.withOpacity(0.1),
       backgroundColor: Colors.white,
     );

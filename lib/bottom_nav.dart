@@ -10,6 +10,8 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: selectedIndex,
+      selectedItemColor:
+          Colors.orange, // Set the active navbar menu color to orange
       onTap: onItemTapped,
       items: [
         BottomNavigationBarItem(
@@ -21,6 +23,7 @@ class BottomNav extends StatelessWidget {
           label: 'Program Studi',
         ),
       ],
+      elevation: 8.0, // Add a shadow to the navbar container
     );
   }
 }
