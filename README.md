@@ -1,6 +1,7 @@
 # aplikasi_fakultas
 
 A faculty app  using flutter by rendi
+This repo is restricted. If you want to use it please contact rendi.wijanarko@gmail.com for permission.
 
 ## Getting Started
 
