@@ -35,7 +35,7 @@ class ProgramStudyDetail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Image.asset(
-              programData['programLogo'] ?? '',
+              programData['programImage'] ?? '',
               fit: BoxFit.contain,
             ),
             Center(
@@ -72,7 +72,7 @@ class ProgramStudyDetail extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 200,
+                    height: 320,
                     child: TabBarView(
                       children: [
                         _buildVisionMissionTab(programData),
@@ -102,12 +102,14 @@ class ProgramStudyDetail extends StatelessWidget {
           title: const Text('Misi'),
           subtitle: Text(programData['programMisi']),
         ),
-        // Tambahkan ListTiles lain untuk setiap poin visi dan misi
       ],
     );
   }
 
   Widget _buildLecturersTab(Map<String, dynamic> programData) {
+    List<Map<String, String>> lecturers =
+        lecturersData[programData['programName']] ?? [];
+
     return ListView.builder(
       itemCount: lecturers.length,
       itemBuilder: (context, index) {
@@ -161,7 +163,7 @@ class ProgramStudyDetail extends StatelessWidget {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(16.0), // Sesuaikan sesuai kebutuhan
+        padding: const EdgeInsets.all(16.0),
         child: InkWell(
           onTap: () {
             launchURL(programWebsite);
@@ -216,7 +218,7 @@ class ProgramStudyDetail extends StatelessWidget {
                   child: Image.asset(
                     achievementImage,
                     fit: BoxFit.contain,
-                    width: 200, // Sesuaikan ukuran gambar sesuai kebutuhan
+                    width: 200,
                   ),
                 ),
               ),
@@ -228,14 +230,14 @@ class ProgramStudyDetail extends StatelessWidget {
               programData['programPrestasi'] ?? '',
               textAlign: TextAlign.center,
             ),
-            const Text(
-              'Mahasiswa yang terlibat:',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              programData['programPrestasiMahasiswa'] ?? '',
-              textAlign: TextAlign.center,
-            ),
+            // const Text(
+            //   'Mahasiswa yang terlibat:',
+            //   style: TextStyle(fontWeight: FontWeight.bold),
+            // ),
+            // Text(
+            //   programData['programPrestasiMahasiswa'] ?? '',
+            //   textAlign: TextAlign.center,
+            // ),
           ],
         ),
       ),

@@ -75,10 +75,10 @@ flutter:
     - assets/images/berita_terkini/berita3.png
 
     # DETAIL PRODI
-    - assets\images\prodi\kewirausahaan\kewirausahaan.png
+    - assets/images/prodi/kewirausahaan/kewirausahaan.png
 
     # DOSEN PRODI
-    - assets/images/prodi/kewirausahaan/Arief-Budiman-S.AB_.-M.AB_.png
+    # KWU
     - assets/images/prodi/kewirausahaan/Arief-Budiman-S.AB_.-M.AB_.png
     - assets/images/prodi/kewirausahaan/Devinta-Nur-Arumsari-S.E.-M.E.png
     - assets/images/prodi/kewirausahaan/Dr.-Hesty-Prima-Rini-SE-MM.png
@@ -87,6 +87,26 @@ flutter:
     - assets/images/prodi/kewirausahaan/MaPres-1.png
     - assets/images/prodi/kewirausahaan/Muhammad-Ahmi-Husein-S.Si_.-M.Sc_.png
     - assets/images/prodi/kewirausahaan/Muhammad-Ilham-Naufal-S.A-MBA.png
+
+      # AKUNTANSI
+    - assets/images/prodi/akuntansi/Dr. Dra. Ec. Endah Susilowati, M.Si, CFrA, CBV, CMA.png
+    - assets/images/prodi/akuntansi/Dr. Dwi Suhartini, M.Aks. CMA.png
+    - assets/images/prodi/akuntansi/Dr. Tantina Haryati, S.E., M.Aks..png
+    - assets/images/prodi/akuntansi/Dra. Ec. Anik Yuliati, M.Aks.png
+    - assets/images/prodi/akuntansi/Dra. Ec. Sari Andayani, M.Aks., CMA.png
+    - assets/images/prodi/akuntansi/Drs. Ec. Muslimin, M.Si.png
+    - assets/images/prodi/akuntansi/Drs. Ec. Saiful Anwar, M.Si..png
+    - assets/images/prodi/akuntansi/gedungakuntansi.png
+    - assets/images/prodi/akuntansi/Prof. Dr. Indrawati Yuhertiana, MM., Ak. CMA.png
+    - assets/images/prodi/akuntansi/Prof. Dr. Sri Trisnaningsih, M.Si, CFrA.png
+
+    # EKONOMI PEMBANGUNAN
+    - assets/images/prodi/ekonomi_pembangunan/Dr. Ignatia Martha, S.E., M.E..png
+    - assets/images/prodi/ekonomi_pembangunan/Dr. Muchtolifah, S.E., M.P..png
+    - assets/images/prodi/ekonomi_pembangunan/Dr. Ririt Iriani, S.E., M.E..png
+    - assets/images/prodi/ekonomi_pembangunan/Drs. Ec. Arief Bachtiar, M.Si..png
+    - assets/images/prodi/ekonomi_pembangunan/headerep.png
+    - assets/images/prodi/ekonomi_pembangunan/Prof. Dr. Syamsul Huda, S.E., M.T..png
 
     # PRESTASI PRODI
     - assets/images/prodi/kewirausahaan/MaPres-1.png

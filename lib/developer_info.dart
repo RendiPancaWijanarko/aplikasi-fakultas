@@ -37,26 +37,6 @@ class DeveloperInfo extends StatelessWidget {
               profileImage:
                   'assets/images/profil_developer/Rendi Panca Wijanarko.png',
             ),
-            SizedBox(height: 40.0),
-            Container(
-              width: double.infinity,
-              height: 1.0,
-              color: Colors.grey,
-            ),
-            SizedBox(height: 40.0),
-            _buildDeveloperProfile(
-              name: 'John Doe',
-              description: 'TTL, Alamat',
-              phoneNumber: '+62 81234567890',
-              email: 'email@domain.com',
-              github: 'www.github.com/username',
-              educationHistory: [
-                '- S1, Universitas ABC, Tahun 2015-2019',
-                '- SMA, SMA Negeri 2, Tahun 2011-2015',
-              ],
-              awards: ['- Penghargaan 1', '- Penghargaan 2'],
-              profileImage: 'assets/images/profile_john.jpg',
-            ),
           ],
         ),
       ),

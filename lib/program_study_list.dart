@@ -20,6 +20,7 @@ class ProgramStudyList extends StatelessWidget {
           programKetua: programStudiData[index]['programKetua'],
           programDosen: programStudiData[index]['programDosen'],
           programPrestasi: programStudiData[index]['programPrestasi'],
+          programImage: programStudiData[index]['programImage'],
         );
       },
     );

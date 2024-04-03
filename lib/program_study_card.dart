@@ -12,6 +12,7 @@ class ProgramStudyCard extends StatelessWidget {
   final String programKetua;
   final String programDosen;
   final String programPrestasi;
+  final String programImage;
 
   ProgramStudyCard({
     required this.programName,
@@ -25,6 +26,7 @@ class ProgramStudyCard extends StatelessWidget {
     required this.programKetua,
     required this.programDosen,
     required this.programPrestasi,
+    required this.programImage,
   });
 
   @override
@@ -51,6 +53,7 @@ class ProgramStudyCard extends StatelessWidget {
                 'programKetua': programKetua,
                 'programDosen': programDosen,
                 'programPrestasi': programPrestasi,
+                'programImage': programImage,
               },
             );
           },
