@@ -71,7 +71,7 @@ List<Map<String, dynamic>> programStudiData = [
         '3. Menyelenggarakan pengabdian kepada masyarakat berbasis riset dan kearifan lokal.\n'
         '4. Menyelenggarakan tata kelola yang baik dan bersih dalam rangka mencapai akuntabilitas pengelolaan anggaran.\n'
         '5. Mengembangkan kualitas sumber daya manusia unggul dalam sikap dan tata nilai, unjuk kerja, penguasaan pengetahuan, dan manajerial.\n'
-        '6. Meningkatkan kerja sama institusional dengan stakeholders baik dalam dan luar negeri. \n',
+        '6. Meningkatkan kerja sama institusional dengan stakeholders baik dalam dan luar negeri.',
     'programAkreditasi': 'A dan FIBAA',
     'programKetua': 'N/A',
     'programDosen': 'N/A',
@@ -86,14 +86,25 @@ List<Map<String, dynamic>> programStudiData = [
     'programDescription': 'Pengelolaan organisasi dan sumber daya.',
     'numberOfStudents': 1519,
     'programLogo': 'assets/images/logo_prodi/Manajemen.png',
-    'programWebsite': 'https://example.com/akuntansi',
+    'programImage': 'assets/images/prodi/manajemen/gedungmanajemen.png',
+    'programWebsite': 'https://manajemen.upnjatim.ac.id',
     'programVisi':
-        'Menjadi lembaga pendidikan akuntansi terbaik di Asia Tenggara.',
-    'programMisi':
-        '1. Menghasilkan akuntan profesional.\n2. Memberikan kontribusi dalam penelitian akuntansi.',
+        'Menjadi salah satu program studi yang unggul dalam pengembangan Ilmu Manajemen yang berkarakter bela negara pada tahun 2024.',
+    'programMisi': '1. Menyelenggarakan pendidikan bidang manejemen yang berkarakter bela negara.\n'
+        '2. Meningkatkan pengembangan ilmu manajemen melalui kegiatan penelitian.\n'
+        '3. Melaksanakan pengabdian kepada masyarakat melalui karya inovatif berbasis iptek dan kearifan lokal.\n'
+        '4. Menyelenggarakan tata kelola yang baik dan bersih dalam rangka mencapai akuntanbilitas pengelolaan anggaran.\n'
+        '5. Mengembangkan kualitas sumber manusia unggul dalam sikap dan tata nilai, unjuk rasa, penguasaan pengetahuan dan manajerial.\n'
+        '6. Meningkatkan sistem pengelolaan sarana dan prasarana terpadu. \n'
+        '7. Membangun jejaring dengan institusi baik nasional dan internasional melalui Implementasi kerjasama. \n',
     'programAkreditasi': 'Baik',
     'programKetua': 'N/A',
     'programDosen': 'N/A',
-    'programPrestasi': 'Baik',
+    'programPrestasi':
+        '1. Juara 1 National Economic Business Plan Competition Festival 2022.\n'
+            '2. Juara 3 LENS (Lomba Esai Nasional) Chemistry Friendship Competition V 2022.\n'
+            '3. Juara 3 E-Sport PUBG Mobile Brawijaya Tournament 2022.\n'
+            '4. 8th Place National BMCC 2022 Himpunan Mahasiswa Sistem Pembangkit Energi Politeknik Elektronika Negeri Surabaya.\n'
+            '5. Juara 2 Mobile Legends Telkom University E-Sport Championship 2022.',
   },
 ];

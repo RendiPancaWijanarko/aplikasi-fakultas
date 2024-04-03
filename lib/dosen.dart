@@ -83,44 +83,75 @@ final Map<String, List<Map<String, String>>> lecturersData = {
     {
       'photo':
           'assets/images/prodi/ekonomi_pembangunan/Prof. Dr. Syamsul Huda, S.E., M.T..png',
-      'role': 'Ketua Prodi Akuntansi',
+      'role': 'Ketua Prodi Eko.Pembangunan',
       'name': 'Prof. Dr. Syamsul Huda, S.E., M.T.',
     },
     {
       'photo':
           'assets/images/prodi/ekonomi_pembangunan/Dr. Ignatia Martha, S.E., M.E..png',
-      'role': 'Sekretaris Prodi Akuntansi',
+      'role': 'Sekretaris Prodi Eko.Pembangunan',
       'name': 'Dr. Ignatia Martha, S.E., M.E.',
     },
     {
       'photo':
           'assets/images/prodi/ekonomi_pembangunan/Dr. Muchtolifah, S.E., M.P..png',
-      'role': 'Dosen Prodi Akuntansi',
+      'role': 'Dosen Prodi Eko.Pembangunan',
       'name': 'Dr. Muchtolifah, S.E., M.P.',
     },
     {
       'photo':
           'assets/images/prodi/ekonomi_pembangunan/Dr. Ririt Iriani, S.E., M.E..png',
-      'role': 'Dosen Prodi Akuntansi',
+      'role': 'Dosen Prodi Eko.Pembangunan',
       'name': 'Dr. Ririt Iriani, S.E., M.E.',
     },
     {
       'photo':
           'assets/images/prodi/ekonomi_pembangunan/Drs. Ec. Arief Bachtiar, M.Si..png',
-      'role': 'Dosen Prodi Akuntansi',
+      'role': 'Dosen Prodi Eko.Pembangunan',
       'name': 'Drs. Ec. Arief Bachtiar, M.Si.',
     },
   ],
   'Manajemen': [
     {
-      'photo': 'assets/images/prodi/akuntansi/Dr.-John-Doe-SE-Ak-M.Ak-CPA.png',
-      'role': 'Koordinator Prodi Akuntansi',
-      'name': 'Dr.-John-Doe-SE-Ak-M.Ak-CPA',
+      'photo':
+          'assets/images/prodi/manajemen/Dr. Muhadjir Anwar, M.M., CFP.png',
+      'role': 'Ketua Prodi Manajemen',
+      'name': 'Dr. Muhadjir Anwar, M.M., CFP',
     },
     {
-      'photo': 'assets/images/prodi/akuntansi/Jane-Smith-SE-M.Sc.png',
-      'role': 'Dosen Prodi Akuntansi',
-      'name': 'Jane Smith, SE, M.Sc',
+      'photo':
+          'assets/images/prodi/manajemen/Dr. Dra. Ika Korika Swasti, M.Pd.png',
+      'role': 'Sekretaris Prodi Manajemen',
+      'name': 'Dr. Dra. Ika Korika Swasti, M.Pd',
+    },
+    {
+      'photo':
+          'assets/images/prodi/manajemen/Dra.Ec. Nurjanti Takarini, M.Si.png',
+      'role': 'Koordinator Prodi Manajemen',
+      'name': 'Dra.Ec. Nurjanti Takarini, M.Si',
+    },
+    {
+      'photo':
+          'assets/images/prodi/manajemen/Prof. Dr. Ir. Akhmad Fauzi, MMT, CHRA.png',
+      'role': 'Dosen Prodi Manajemen',
+      'name': 'Prof. Dr. Ir. Akhmad Fauzi, MMT, CHRA',
+    },
+    {
+      'photo':
+          'assets/images/prodi/manajemen/Prof. Dr. Yuniningsih, SE, M.Si.png',
+      'role': 'Dosen Prodi Manajemen',
+      'name': 'Prof. Dr. Yuniningsih, SE, M.Si',
+    },
+    {
+      'photo':
+          'assets/images/prodi/manajemen/Dr. Dhani Ichsanuddin Nur, MM, CFP.png',
+      'role': 'Dosen Prodi Manajemen',
+      'name': 'Dr. Dhani Ichsanuddin Nur, MM, CFP',
+    },
+    {
+      'photo': 'assets/images/prodi/manajemen/Dra.Ec. Kustini, M.Si, CHRA.png',
+      'role': 'Dosen Prodi Manajemen',
+      'name': 'Dra.Ec. Kustini, M.Si, CHRA',
     },
   ],
 };
