@@ -3,7 +3,7 @@ import 'bottom_nav.dart';
 import 'developer_info.dart';
 import 'home.dart';
 import 'program_study_list.dart';
-import 'program_studi_detail.dart'; // Import ProgramStudyDetail.dart
+import 'program_studi_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', // Set initialRoute to '/'
       routes: {
         '/': (context) => const HomePageWithCustomAppBar(),
-        '/program_studi_detail': (context) =>
-            ProgramStudyDetail(), // Register the route for ProgramStudyDetail
+        '/program_studi_detail': (context) => ProgramStudyDetail(),
       },
     );
   }

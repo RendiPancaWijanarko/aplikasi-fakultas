@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dosen.dart';
 
 class ProgramStudyDetail extends StatelessWidget {
+  const ProgramStudyDetail({Key? key});
+
   @override
   Widget build(BuildContext context) {
     final Map<String, dynamic>? programData =
@@ -20,72 +24,229 @@ class ProgramStudyDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail Program Studi'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text('Detail Prodi - ${programData['programName']}'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          // Informasi tambahan
-          const Text(
-            'Profil',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Image.asset(
+              programData['programLogo'] ?? '',
+              fit: BoxFit.contain,
             ),
-          ),
-          const SizedBox(height: 8),
-          Text('Visi: ${programData['programVisi'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text('Misi: ${programData['programMisi'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text(
-              'Akreditasi: ${programData['programAkreditasi'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text(
-              'Ketua Program Studi: ${programData['programKetua'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text('Dosen: ${programData['programDosen'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text(
-              'Laman Website Resmi: ${programData['programWebsite'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 8),
-          Text(
-              'Prestasi Mahasiswa: ${programData['programPrestasi'] ?? 'Tidak tersedia'}'),
-          const SizedBox(height: 16),
-
-          // Informasi dasar
-          Text(
-            'Program Studi: ${programData['programName']}',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
+            Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      programData['programName'],
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      'Terakreditasi ${programData['programAkreditasi']}',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 16.0),
-          Image.network(
-            programData['programLogo'] ?? '',
-            width: 100,
-            height: 100,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            programData['programDescription'] ?? 'Tidak tersedia',
-            style: const TextStyle(
-              fontSize: 16,
+            DefaultTabController(
+              length: 4,
+              child: Column(
+                children: <Widget>[
+                  const TabBar(
+                    tabs: [
+                      Tab(text: 'Visi & Misi'),
+                      Tab(text: 'Dosen'),
+                      Tab(text: 'Website'),
+                      Tab(text: 'Prestasi'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 200,
+                    child: TabBarView(
+                      children: [
+                        _buildVisionMissionTab(programData),
+                        _buildLecturersTab(programData),
+                        _buildWebsiteTab(programData),
+                        _buildAchievementsTab(programData),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            'Jumlah Mahasiswa: ${programData['numberOfStudents'] ?? 'Tidak tersedia'}',
-            style: const TextStyle(
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _buildVisionMissionTab(Map<String, dynamic> programData) {
+    return ListView(
+      children: <Widget>[
+        ListTile(
+          title: const Text('Visi'),
+          subtitle: Text(programData['programVisi']),
+        ),
+        ListTile(
+          title: const Text('Misi'),
+          subtitle: Text(programData['programMisi']),
+        ),
+        // Tambahkan ListTiles lain untuk setiap poin visi dan misi
+      ],
+    );
+  }
+
+  Widget _buildLecturersTab(Map<String, dynamic> programData) {
+    return ListView.builder(
+      itemCount: lecturers.length,
+      itemBuilder: (context, index) {
+        final lecturer = lecturers[index];
+        return Card(
+          margin: const EdgeInsets.all(8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    lecturer['photo']!,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        lecturer['role']!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        lecturer['name']!,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildWebsiteTab(Map<String, dynamic> programData) {
+    String programWebsite = programData['programWebsite'] ?? '';
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0), // Sesuaikan sesuai kebutuhan
+        child: InkWell(
+          onTap: () {
+            launchURL(programWebsite);
+          },
+          child: Text(
+            programWebsite,
+            style: const TextStyle(
+              fontSize: 16,
+              decoration: TextDecoration.underline,
+              color: Colors.blue,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAchievementsTab(Map<String, dynamic> programData) {
+    // Mendapatkan data prestasi dari programData
+    String achievementTitle = programData['programPrestasiTitle'] ?? 'Prestasi';
+    String achievementText = programData['programPrestasiText'] ??
+        'Terus gali potensi dirimu dan kembangkan sampai foto dan namamu muncul di sini!';
+    String achievementImage = programData['programPrestasiImage'] ?? '';
+
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                achievementTitle,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                achievementText,
+                style: const TextStyle(fontSize: 16),
+              ),
+            ),
+            if (achievementImage.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Center(
+                  child: Image.asset(
+                    achievementImage,
+                    fit: BoxFit.contain,
+                    width: 200, // Sesuaikan ukuran gambar sesuai kebutuhan
+                  ),
+                ),
+              ),
+            const Text(
+              'Detail prestasi:',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              programData['programPrestasi'] ?? '',
+              textAlign: TextAlign.center,
+            ),
+            const Text(
+              'Mahasiswa yang terlibat:',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              programData['programPrestasiMahasiswa'] ?? '',
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
